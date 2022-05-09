@@ -24,25 +24,25 @@ const ItemCount = ({ stock, initial, onAdd, onRemove }) => {
 
   return (
     <div>
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col-sm-4"></div>
-          <div class="col-sm-4 col-sm-offset-4">
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col-sm-4"></div>
+          <div className="col-sm-4 col-sm-offset-4">
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
                 <button
                   onClick={onRemove}
-                  class="btn btn-dark btn-sm"
+                  className="btn btn-dark btn-sm"
                   id="minus-btn"
                 >
                   -
                 </button>
               </div>
-              <h1 class="form-control form-control-sm">{count}</h1>
-              <div class="input-group-prepend">
+              <h1 className="form-control form-control-sm">{count}</h1>
+              <div className="input-group-prepend">
                 <button
                   onClick={onAdd}
-                  class="btn btn-dark btn-sm"
+                  className="btn btn-dark btn-sm"
                   id="plus-btn"
                 >
                   +
@@ -50,11 +50,11 @@ const ItemCount = ({ stock, initial, onAdd, onRemove }) => {
               </div>
             </div>
           </div>
-          <div class="col-sm-4"></div>
+          <div className="col-sm-4"></div>
         </div>
       </div>
       <br></br>
-      <button class="w-40 h-40">Add to Cart</button>
+      <button className="w-40 h-40">Add to Cart</button>
     </div>
   );
 };

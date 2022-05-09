@@ -40,3 +40,23 @@
 .navbar-beige {
   background-color: beige;
 }
+
+.card-box {
+  padding: 20px;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  border: 1px solid black;
+}
+.thumb-lg{
+  height: 88px;
+  width: 88px;
+}
+.img-thumbnail{
+  padding: 0.25rem;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  max-width: auto;
+  height: auto;
+}
