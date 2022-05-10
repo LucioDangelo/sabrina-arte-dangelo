@@ -1,11 +1,10 @@
 import Item from './Item';
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 
-function ItemList() {
+const ItemList = () => {
+    const [products,setProducts] = useState([]);
 
-    //const task = new Promise((resolve, reject) => {
-
-    const items = [
+    const productList = [
         {
             id: 1,
             title: "title1",
@@ -26,38 +25,42 @@ function ItemList() {
         }
     ]
 
-    // setTimeout(()=>{
-    //             resolve(arr)
-    //         },2000)
-    //     })
-    // task.then((res)=>{
-    //         console.log(res);
-    //     })
+    const getProducts = new Promise ((resolve,reject) => {
+        setTimeout(() => {
+            resolve(productList);
+        }, 2000);
+    });
 
-    const itemList = items.map(item => <Item item={item} key={item.id}/>)
+    const getProductsFromCatalogue = async () => {
+        try {
+            const result = await getProducts;
+            setProducts(result);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
-  return (
-    <div>{itemList}</div>
-  )
+    useEffect(() => {
+        getProductsFromCatalogue();
+    }, []);
+
+    return(
+        <div>
+            {products.map((product) => {
+                return(
+                    <div key={product.id}>
+                        <Item
+                        id={product.id}
+                        title={product.title}
+                        price={product.price}
+                        pictureUrl={product.pictureUrl} />
+                    </div>
+                )
+            })}
+        </div>
+    )
+
+
 }
 
 export default ItemList
-
-
-// const ItemList = () => {
-
-//     const task = new Promise((resolve, reject) => {
-
-//         const arr = [{id:1, title:"Producto1", description:"desc1", price:100, pictureUrl:"avxcxc"}]
-
-//         setTimeout(()=>{
-//             resolve(arr)
-//         },2000)
-//     })
-
-//     task.then((res)=>{
-//         console.log(res);
-//     })
-
-
-
