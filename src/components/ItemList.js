@@ -7,21 +7,21 @@ const ItemList = () => {
     const productList = [
         {
             id: 1,
-            title: "title1",
-            price: 100,
-            pictureUrl: "picture1.jpg"
+            title: "Posteos de Instagram",
+            price: 10000,
+            pictureUrl: "producto1.png"
         },
         {
             id: 2,
-            title: "title2",
-            price: 200,
-            pictureUrl: "picture2.jpg"
+            title: "Storys de Instagram",
+            price: 20000,
+            pictureUrl: "producto2.png"
         },
         {
             id: 3,
-            title: "title3",
-            price: 300,
-            pictureUrl: "picture3.jpg"
+            title: "Newsletters",
+            price: 30000,
+            pictureUrl: "producto3.png"
         }
     ]
 
@@ -45,7 +45,7 @@ const ItemList = () => {
     }, []);
 
     return(
-        <div>
+        <div  className="product-list-container">
             {products.map((product) => {
                 return(
                     <div key={product.id}>

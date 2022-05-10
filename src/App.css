@@ -60,3 +60,24 @@
   max-width: auto;
   height: auto;
 }
+
+.product-card {
+  text-align: center;
+  padding-top: 100px;
+}
+
+.product-card__picture {
+  width: 320px;
+}
+
+.product-card__title {
+  font-size: 1.6rem;
+}
+
+.product-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  justify-content: center;
+  gap: 30px 60px;
+  margin: 40px 20px;
+}
