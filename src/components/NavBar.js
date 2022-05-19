@@ -1,5 +1,6 @@
 import React from 'react'
 import CartWidget from './CartWidget'
+import  { Link } from "react-router-dom"
 
 const NavBar = () => {
   return (
@@ -11,15 +12,10 @@ const NavBar = () => {
   </button>
   <div className="collapse navbar-collapse" id="navbarNav">
     <ul className="navbar-nav">
-      <li className="nav-item">
-        <a className="nav-link h4" href="/">Ilustration</a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link h4" href="/">Logo & Identity</a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link h4" href="/">Social Media</a>
-      </li>
+      <Link to="/" className="nav-item nav-link h4"> <img src='./logo192.png' href='/' alt='/' width='30' color='grey'></img></Link>
+      <Link to="/category/ilustracion" className="nav-item nav-link h4">Ilustracion</Link>
+      <Link to="/category/logo" className="nav-item nav-link h4">Logo & Identity</Link>
+      <Link to="/category/socialmedia" className="nav-item nav-link h4">Social Media</Link>
     </ul>
   </div>
   <CartWidget/>

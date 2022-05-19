@@ -1,18 +1,37 @@
-import React from 'react'
-import ItemCount from './ItemCount'
-import ItemDetailContainer from './ItemDetailContainer'
-import ItemList from './ItemList'
+import React, { useEffect, useState } from 'react';
+import { traerProductos } from '../data/products';
+import ItemList from './ItemList';
+import { useParams } from 'react-router-dom';
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
+    const [products, setProducts] = useState([]);
 
-  return (
-    <div>
-    <h3>Greeting: {props.greeting}</h3>
-    <ItemCount stock="5" initial="1"></ItemCount>
-    <ItemList/>
-    <ItemDetailContainer id={1}/>
-    </div>
-  )
-}
+    const { categoryId } = useParams();
 
-export default ItemListContainer
+    useEffect(() => {
+        traerProductos(categoryId)
+            .then((res) => {
+                setProducts(res);
+            })
+            .catch((error) => console.log(error));
+    }, [categoryId]);
+
+    return (
+        <div>
+            <ItemList products={products} />
+        </div>
+    );
+};
+
+export default ItemListContainer;
+
+// const ItemListContainer = (props) => {
+//   return (
+//     <div>
+//     <h3>Greeting: {props.greeting}</h3>
+//     <ItemCount stock="5" initial="1"></ItemCount>
+//     <ItemList/>
+//     <ItemDetailContainer id={1}/>
+//     </div>
+//   )
+// }

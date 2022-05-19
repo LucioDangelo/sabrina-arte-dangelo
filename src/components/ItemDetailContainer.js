@@ -1,58 +1,23 @@
 import ItemDetail from './ItemDetail';
 import React, { useEffect, useState } from 'react';
+import { traerProducto } from '../data/products';
+import { useParams } from 'react-router-dom';
 
-const ItemDetailContainer = ({id}) => {
-    const [items,setItems] = useState([]);
-
-    const itemList = [
-        {
-            id: 1,
-            title: "Posteos de Instagram",
-            price: 10000,
-            pictureUrl: "producto1.png",
-            description: "Descripcion ejemplo de un producto seleccionado por Id"
-        },
-        {
-            id: 2,
-            title: "Storys de Instagram",
-            price: 20000,
-            pictureUrl: "producto2.png",
-            description: "bbbbbbbbbbbbbbbbbbbbbbb"
-        },
-        {
-            id: 3,
-            title: "Newsletters",
-            price: 30000,
-            pictureUrl: "producto3.png",
-            description: "cccccccccccccccccccccc"
-        }
-    ]
-
-    const getById = (id, array) => array.find((el) => el.id === id);
-
-    const getItem = new Promise ((resolve,reject) => {
-        setTimeout(() => {
-            resolve(itemList);
-        }, 2000);
-    });
-
-    const getItemsFromCatalogue = async (id,setItems) => {
-        try {
-            const result = await getItem;
-            setItems(getById(id,result));
-        } catch (err) {
-            console.log(err);
-        }
-    };
+const ItemDetailContainer = ({}) => {
+    const [product,setProduct] = useState([]);
+    const { id } = useParams();
 
     useEffect(() => {
-        getItemsFromCatalogue(Number(id),setItems);
-        console.log(items);
-    }, [id]);
-
+        traerProducto(id)
+            .then((res) => {
+                setProduct(res);
+            })
+            .catch((error) => console.log(error));
+    }, []);
+    console.log(product);
     return(
         <div  className="product-list-container">
-                        <ItemDetail item={items} />
+                        <ItemDetail product={ product } key={product.id} />
         </div>
     )
 
