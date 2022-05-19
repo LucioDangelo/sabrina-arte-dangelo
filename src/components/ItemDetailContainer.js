@@ -17,7 +17,9 @@ const ItemDetailContainer = ({}) => {
     console.log(product);
     return(
         <div  className="product-list-container">
+            {product.map((product) => (
                         <ItemDetail product={ product } key={product.id} />
+            ))}
         </div>
     )
 
