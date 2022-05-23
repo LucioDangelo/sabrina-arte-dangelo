@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { traerProductos } from '../data/products';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
+import '../App.css';
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
@@ -17,7 +18,7 @@ const ItemListContainer = () => {
     }, [categoryId]);
 
     return (
-        <div>
+        <div className="container">
             <ItemList products={products} />
         </div>
     );

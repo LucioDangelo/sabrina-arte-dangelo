@@ -81,3 +81,7 @@
   gap: 30px 60px;
   margin: 40px 20px;
 }
+
+.lucio1 {
+  border-style: solid, 10px, black;
+}
