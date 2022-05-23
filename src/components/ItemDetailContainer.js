@@ -13,13 +13,16 @@ const ItemDetailContainer = ({}) => {
                 setProduct(res);
             })
             .catch((error) => console.log(error));
-    }, []);
+    }, [id]);
     console.log(product);
     return(
+        <div>
+        <h1 className="mt-5">Detalle de Producto</h1>
         <div  className="product-list-container">
             {product.map((product) => (
                         <ItemDetail product={ product } key={product.id} />
             ))}
+        </div>
         </div>
     )
 

@@ -1,10 +1,11 @@
 import { useState } from "react";
+//import  { Link } from "react-router-dom"
 
-const ItemCount = ({ stock, initial, onAdd, onRemove }) => {
+const ItemCount = ({ stock, initial, onSum, onAdd, onRemove }) => {
   const [count, setCount] = useState(parseInt(initial));
   stock = parseInt(stock);
 
-  onAdd = () => {
+  onSum = () => {
     console.log(stock);
     console.log(initial);
     if (count === stock) {
@@ -24,11 +25,11 @@ const ItemCount = ({ stock, initial, onAdd, onRemove }) => {
 
   return (
     <div>
-      <div className="container mt-5">
+      <div className="container mt-10">
         <div className="row">
           <div className="col-sm-4"></div>
-          <div className="col-sm-4 col-sm-offset-4">
-            <div className="input-group mb-3">
+          <div className="col-sm-6 col-sm-offset-4">
+            <div className="input-group mb-8">
               <div className="input-group-prepend">
                 <button
                   onClick={onRemove}
@@ -38,10 +39,10 @@ const ItemCount = ({ stock, initial, onAdd, onRemove }) => {
                   -
                 </button>
               </div>
-              <h1 className="form-control form-control-sm">{count}</h1>
+              <h1 className="form-control-sm form-control-lg">{count}</h1>
               <div className="input-group-prepend">
                 <button
-                  onClick={onAdd}
+                  onClick={onSum}
                   className="btn btn-dark btn-sm"
                   id="plus-btn"
                 >
@@ -54,7 +55,7 @@ const ItemCount = ({ stock, initial, onAdd, onRemove }) => {
         </div>
       </div>
       <br></br>
-      <button className="w-40 h-40">Add to Cart</button>
+      <button className="w-50 h-50" onClick={() => onAdd(count)}>Agregar al carrito</button>
     </div>
   );
 };

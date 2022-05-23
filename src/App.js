@@ -4,7 +4,7 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Footer from './components/Footer';
 import Home from './components/Home';
-import Picture from './components/Picture';
+// import Picture from './components/Picture';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <NavBar/>
-      <Picture/>
+      {/* <Picture/> */}
       <Routes>
                 <Route path="/" element={<Home />} />
                 <Route
