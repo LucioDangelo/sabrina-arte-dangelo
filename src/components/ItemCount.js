@@ -6,8 +6,6 @@ const ItemCount = ({ stock, initial, onSum, onAdd, onRemove }) => {
   stock = parseInt(stock);
 
   onSum = () => {
-    console.log(stock);
-    console.log(initial);
     if (count === stock) {
       setCount(count);
     } else {
