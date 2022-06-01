@@ -5,7 +5,7 @@ export const CartContext = createContext(null);
 
 const CartProvider = (props) => {
   const [cart, setCart] = useState([]);
-  const [total, setTotal] = useState(0);
+  //const [total, setTotal] = useState(0);
 
   const addToCart = (product, count) => {
     if (cart.some((el) => el.id === product.id)) {
@@ -37,6 +37,26 @@ const CartProvider = (props) => {
 
   //isInCart: (id) => true/false
 
+  const getTotalQuantity = () => {
+    let quantity = 0;
+    const newCart = [...cart];
+    for (const cart of newCart) {
+      quantity += cart.count;
+    }
+    return quantity;
+  };
+
+  const getTotalPrice = () => {
+    let price = 0;
+    const newCart = [...cart];
+    for (const cart of newCart) {
+      price += cart.price;
+    }
+    return price + "$";
+  };
+
+
+
 
   return (
     <CartContext.Provider
@@ -46,6 +66,8 @@ const CartProvider = (props) => {
         addToCart,
         clear,
         removeItem,
+        getTotalQuantity,
+        getTotalPrice,
       }}
     >
       {props.children}
