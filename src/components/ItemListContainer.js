@@ -1,25 +1,44 @@
 import React, { useEffect, useState } from 'react';
-import { traerProductos } from '../data/products';
+//import { traerProductos } from '../data/products';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
 import '../App.css';
+import { db } from "../components/firebase/firebaseConfig";
+import { query, collection, getDocs, where, limit } from "firebase/firestore";
 
 const ItemListContainer = () => {
-    const [products, setProducts] = useState([]);
-
+    const [ArtData, setArtData] = useState([]);
     const { categoryId } = useParams();
+    console.log(categoryId)
 
     useEffect(() => {
-        traerProductos(categoryId)
-            .then((res) => {
-                setProducts(res);
-            })
-            .catch((error) => console.log(error));
-    }, [categoryId]);
+        const getArt = async () => {
+            if (typeof categoryId !== 'undefined') {
+                const q = query(collection(db, "items"), where('category', "==", categoryId), limit(5));
+                const docs = [];
+                const querySnapshot = await getDocs(q);
+                querySnapshot.forEach((doc) => {
+                    docs.push({...doc.data(), id: doc.id});        
+                  });
+                  setArtData(docs);
+            } else {
+                const q = query(collection(db, "items"), limit(5));
+                const docs = [];
+                const querySnapshot = await getDocs(q);
+                querySnapshot.forEach((doc) => {
+                    docs.push({...doc.data(), id: doc.id});        
+                  });
+                  setArtData(docs);
+            }
+        }  
+        getArt()
+      }, [])
+
+    
 
     return (
         <div className="container">
-            <ItemList products={products} />
+            <ItemList products={ArtData} />
         </div>
     );
 };
