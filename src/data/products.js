@@ -13,7 +13,7 @@ const products = [
         price: 200,
         stock: 11,
         id: 2,
-        img: 'https://i.imgur.com/PSr4gWl.png',
+        img: '  ',
         category: 'logo',
         description: 'a1',
     },
