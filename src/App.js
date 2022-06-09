@@ -5,6 +5,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Cart from "./components/Cart";
+import Form from './components/Form';
 import CartProvider from './context/CartContext';
 // import Picture from './components/Picture';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -27,6 +28,7 @@ function App() {
                     element={<ItemListContainer />}
                 />
                 <Route path="/item/:id" element={<ItemDetailContainer />} />
+                <Route path="/form" element={<Form />} />
             </Routes>
       <Footer/>
       </BrowserRouter>

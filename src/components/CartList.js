@@ -24,6 +24,7 @@ const CartList = () => {
 
         <div ><h2>Total de productos: {cartContext.getTotalQuantity()}</h2></div>
         <div ><h2>Precio Total: {cartContext.getTotalPrice()}</h2></div>
+        <Link to="/form" className="btn btn-primary">Realizar compra</Link>
 
     </section>
   );

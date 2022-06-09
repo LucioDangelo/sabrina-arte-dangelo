@@ -44,14 +44,3 @@ const ItemListContainer = () => {
 };
 
 export default ItemListContainer;
-
-// const ItemListContainer = (props) => {
-//   return (
-//     <div>
-//     <h3>Greeting: {props.greeting}</h3>
-//     <ItemCount stock="5" initial="1"></ItemCount>
-//     <ItemList/>
-//     <ItemDetailContainer id={1}/>
-//     </div>
-//   )
-// }
