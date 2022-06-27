@@ -14,3 +14,6 @@ Desafío 9: Cart View
 Desafío 10: Item Collection
 Desafío 11: Item Collection II
 -Entrega del Proyecto Final
+
+## Proceso de compra de productos 
+![screen-capture](https://user-images.githubusercontent.com/69160062/175840694-b84ad282-4c6c-4799-b03f-e231e10fc783.gif)
