@@ -1,6 +1,6 @@
-#Proyecto del Curso de React de CODER HOUSE.
-##Una vez abierto hacer npm start para levantar el proyecto.
-###Entregas:
+# Proyecto del Curso de React de CODER HOUSE.
+## Una vez abierto hacer npm start para levantar el proyecto.
+### Entregas:
 Desafío 1: Crear la App utilizando el CLI
 Desafío 2: Menú e-commerce
 Desafío 3: Crea tu landing
